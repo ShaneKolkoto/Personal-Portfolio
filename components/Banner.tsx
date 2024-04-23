@@ -18,7 +18,7 @@ const Banner: React.FC<{}> = () => {
         </div>
 
         <div className="flex flex-col gap-6 mt-6 cursor-pointer animate-bounce tracking-tighter text-7xl font-semibold text-white max-w-[620px] w-auto h-auto">
-          I'm Shane Kolkoto!
+          I&apos;m Shane Kolkoto!
         </div>
         <div className="flex justify-center">
           <p className="text-2xl font-medium tracking-tighter text-gray-300 max-w-[600px]">
