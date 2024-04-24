@@ -15,7 +15,7 @@ export default function Home() {
         <Skills />
         <Experience />
         {/* <Projects /> */}
-        <DiscordBot />
+        {/* <DiscordBot /> */}
         <Footer />
       </div>
     </main>
