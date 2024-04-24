@@ -6,99 +6,113 @@ const Projects: React.FC<{}> = () => {
   return (
     <section id="projects">
       <h1 className="text-white font-semibold text-center text-6xl pt-[35px]">
-        PROJECTS
+        PROJECTS WORKED ON
       </h1>
       <p className=" tracking-[0.5em] text-center text-transparent font-light pb-5  bg-clip-text bg-gradient-to-r from-purple-700 to-orange-500  text-1xl ">
         EXPLORE NOW
       </p>
-      <div className=" container mx-auto 2xl  ">
-        <div className="flex-col flex md:flex-row  mt-7">
+      <div className="container !max-w-[1440px] mx-auto 2xl flex flex-col gap-[15px]">
+        <div className="flex-col flex md:flex-row  mt-7 gap-[10px]">
           <Link
-            href="https://web.hr/"
+            href="https://vans.co.za/"
             rel="noopener noreferrer"
             target="_blank"
-            className="z-[1]"
+            className="z-[1] h-full hover:bg-[#eb1d25] transition-all duration-500 ease-in-out w-full"
           >
-            <div className="flex-row flex mb-5">
+            <div className="flex-row flex gap-0 lg:gap-[10px]">
               <Image
-                src="/FirstProject.png"
-                height={150}
+                src="/Vans-logo.jpeg"
+                height={10}
                 width={150}
-                alt="disney-clone"
+                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
+                alt="vans-clone"
               />
-              <div className="p-3">
-                <p className="text-white font-semibold text-xl">Disney+ Clone</p>
-                <p className="text-gray-500 text-[10px]">
-                The Disney+ Clone project is a web application designed to mimic the functionality and aesthetics of the popular streaming platform Disney+.
-                Utilizing HTML, CSS, and JavaScript, this project aims to replicate the user interface and features of Disney+ for a seamless viewing experience.
+              <div className="p-0 lg:p-3 px-[10px] lg:px-0 w-full">
+                <p className="text-white font-semibold text-xl">Vans SA</p>
+                <p className="text-gray-500 hover:text-white text-[8px] lg:text-[10px]">
+                  I had the privilege of contributing to the enhancement of the
+                  Vans South Africa website. My primary focus revolved around
+                  refining the user experience for both the account and wishlist
+                  pages.
                 </p>
               </div>
             </div>
           </Link>
           <Link
-            href="https://hireside.com/"
+            href="https://bashafrica.com/"
             rel="noopener noreferrer"
             target="_blank"
-            className="z-[1]"
+            className="z-[1] h-full hover:bg-[#024089] transition-all duration-500 ease-in-out w-full"
           >
-            <div className="flex-row flex mb-5">
+            <div className="flex-row flex gap-0 lg:gap-[10px]">
               <Image
-                src="/SecondProject.png"
-                height={150}
+                src="/Birkenstock-logo.png"
+                height={250}
                 width={150}
-                alt="Health-concept"
+                alt="Birkenstock"
+                className=" h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
               />
-              <div className="p-3">
-                <p className="text-white font-semibold text-xl">Health Concept</p>
-                <p className="text-gray-500 text-[10px]">
-                The Disney+ Clone project is a web application designed to mimic the functionality and aesthetics of the popular streaming platform Disney+.
-                Utilizing HTML, CSS, and JavaScript, this project aims to replicate the user interface and features of Disney+ for a seamless viewing experience.
+              <div className="p-0 lg:p-3 px-[10px] lg:px-0 w-full">
+                <p className="text-white font-semibold text-xl">
+                  Birkenstock SA
+                </p>
+                <p className="text-gray-500 hover:text-white text-[8px] lg:text-[10px]">
+                  I had the opportunity to further elevate the Birkenstock SA
+                  website. My role in this project primarily involved
+                  implementing updates and integrating new features, with a
+                  special focus on enhancing the product cards and refining the
+                  filtering system.
                 </p>
               </div>
             </div>
           </Link>
         </div>
-        <div className="flex-col flex md:flex-row ">
+        <div className="flex-col flex md:flex-row gap-[10px]">
           <Link
-            href="https://www.vergesystems.com/"
+            href="https://crocssa.co.za/"
             rel="noopener noreferrer"
             target="_blank"
-            className="z-[1]"
+            className="z-[1] h-full hover:bg-[#86bc06] transition-all duration-500 ease-in-out w-full"
           >
-            <div className="flex-row flex mb-5">
+            <div className="flex-row flex gap-0 lg:gap-[10px]">
               <Image
-                src="/ThirdProject.png"
+                src="/Crocs-logo.jpeg"
                 height={150}
                 width={150}
-                alt="VergeSystems"
+                alt="Crocs South Africa"
+                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
               />
-              <div className=" p-3 ">
-                <p className="text-white font-semibold text-xl">
-                  Ubuntu Portfolio
-                </p>
-                <p className="text-gray-500 text-[10px]">
-                  Developed the Verge Systems website using React.js.
+              <div className=" p-0 lg:p-3 px-[10px] lg:px-0 w-full ">
+                <p className="text-white font-semibold text-xl">Crocs SA</p>
+                <p className="text-gray-500 hover:text-white text-[8px] lg:text-[10px]">
+                  I had the privilege of contributing to the enhancement of the
+                  Crocs South Africa website. My primary focus revolved around
+                  refining the user experience.
                 </p>
               </div>
             </div>
           </Link>
           <Link
-            href="http://44.201.47.75/"
+            href="https://underarmour.co.za/"
             rel="noopener noreferrer"
             target="_blank"
-            className="z-[1]"
+            className="z-[1] h-full hover:bg-[#000000] transition-all duration-500 ease-in-out w-full"
           >
-            <div className="flex-row flex mb-5">
+            <div className="flex-row flex gap-0 lg:gap-[10px]">
               <Image
-                src="/FourProject.png"
+                src="/UA-logo.webp"
                 height={150}
                 width={150}
-                alt="Payoasis"
+                alt="Under Armour South Africa"
+                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
               />
-              <div className="p-3 ">
-                <p className="text-white font-semibold text-xl">Fondations algorithms</p>
-                <p className="text-gray-500 text-[10px]">
-                  Designed the modern UI for a banking website utilizing Gatsby.
+              <div className=" p-0 lg:p-3 px-[10px] lg:px-0 w-full">
+                <p className="text-white font-semibold text-xl">
+                  Under Armour SA
+                </p>
+                <p className="text-gray-500 hover:text-white text-[8px] lg:text-[10px]">
+                  I had the opportunity to further elevate the Under Armour Website and Mobile App. My role in this project primarily involved
+                  implementing and integrating new features, with a special focus on enhancing the API on v4 Release.
                 </p>
               </div>
             </div>

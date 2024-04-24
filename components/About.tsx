@@ -2,9 +2,9 @@ import React from "react";
 
 const About: React.FC<{}> = () => {
   return (
-    <section
+    <div
       id="about"
-      className="flex flex-col items-center justify-center h-full relative overflow-hidden pt-[35px] "
+      className="flex flex-col items-center justify-center h-full relative overflow-hidden pt-[35px] z-[20] cursor-default"
       style={{ transform: "scale(0.9)" }}
     >
       <div className="flex flex-col  justify-around flex-wrap items-center   max-w-[900px]">
@@ -17,15 +17,15 @@ const About: React.FC<{}> = () => {
           <br />
           <br />
           With a fervor for crafting elegant solutions, I navigate the
-          ever-evolving landscape of software development. My journey involves
+          ever-evolindex and scape of software development. My journey involves
           translating concepts into code, creating seamless user experiences,
           and constantly pushing the boundaries of what&#39;s possible
           <br />
           <br />
-          In my personal time, I love watching anime, listening to music, taking my Rottweiler on walks, and spending time with the people close to me.
+          In my personal time, I love watching anime, listening to music, taking my Rottweiler on walks, writing blogs on <a href="https://medium.com/@shanekolkoto" className="font-bold underline"> Medium</a> and spending time with the people close to me.
         </p>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -21,9 +21,17 @@ const Navbar: React.FC<{}> = () => {
         <div className="flex flex-row gap-5">
           <a
            href="https://medium.com/@shanekolkoto"
+           target="_blank"
             className=" z-[1]  bg-transparent  padding-10 cursor-pointer bg-black hover:bg-[#2E2E2E] rounded-xl  text-white  py-2 px-5"
           >
             Blog
+          </a>
+          <a
+           href="https://shanekolkotoportfolio.netlify.app"
+           target="_blank"
+            className=" z-[1]  bg-transparent  padding-10 cursor-pointer bg-black hover:bg-[#2E2E2E] rounded-xl  text-white  py-2 px-5"
+          >
+            Virtual Pc 💻
           </a>
           <div
             onClick={() => window.open("mailto:shanekolkoto@gmail.com")}
