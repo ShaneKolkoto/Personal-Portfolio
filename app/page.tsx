@@ -4,7 +4,6 @@ import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
-import DiscordBot from "@/components/DiscordBot";
 
 export default function Home() {
   return (
@@ -14,8 +13,7 @@ export default function Home() {
         <About />
         <Skills />
         <Experience />
-        {/* <Projects /> */}
-        {/* <DiscordBot /> */}
+        <Projects />
         <Footer />
       </div>
     </main>
