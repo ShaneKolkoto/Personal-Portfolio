@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import styles from './styles.module.css'; // Import CSS file for styling
 import Image from "next/image";
