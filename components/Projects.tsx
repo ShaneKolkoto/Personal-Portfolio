@@ -100,7 +100,7 @@ const Projects: React.FC<{}> = () => {
           >
             <div className="flex-row flex gap-0 lg:gap-[10px]">
               <Image
-                src="/UA-logo.webp"
+                src="/UA-logo.jpeg"
                 height={150}
                 width={150}
                 alt="Under Armour South Africa"
