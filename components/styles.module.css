@@ -17,6 +17,13 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
+
+  @media only screen and (max-width: 768px) {
+    .discordBotIcon {
+      width: 20px;
+      height: 20px;
+    }
+  }
   
   .discordBotIcon:hover {
     transform: scale(1.1);

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Banner: React.FC<{}> = () => {
   return (
-    <div className="flex flex-row items-center justify-center px-20 mt-[150px] z-[20] ">
+    <div className="flex flex-row items-center justify-center px-20 mt-[60px] lg:mt-[150px] z-[20] ">
       <div className="flex flex-col  justify-center  text-center">
         <div className="justify-center flex ">
           <Image
@@ -17,7 +17,7 @@ const Banner: React.FC<{}> = () => {
           />
         </div>
 
-        <div className="flex flex-col gap-6 mt-6 cursor-pointer animate-bounce tracking-tighter text-7xl font-semibold text-white max-w-[620px] w-auto h-auto">
+        <div className="flex flex-col gap-6 mt-6 cursor-pointer lg:animate-bounce tracking-tighter text-[47px] lg:text-7xl font-semibold text-white max-w-[620px] w-auto h-auto">
           I&apos;m Shane Kolkoto!
         </div>
         <div className="flex justify-center">
@@ -30,7 +30,7 @@ const Banner: React.FC<{}> = () => {
           <Image src="/popcorn.gif" height={50} width={50} alt="chill" />
         </div>
 
-        <p className="text-md text-gray-200 my-5 max-w-[600px]">
+        <p className="lg:text-md text-[10px] text-gray-200 lg:mt-5 mt-[0.25rem] mb-5  max-w-[600px]">
           Passionate Full Stack Developer adept in Node.js, Vue.js, React.js,
           Firebase, PostgreSQL, MongoDB, Shopify, WordPress, PHP, and Python,
           dedicated to crafting intuitive and seamless mobile applications.

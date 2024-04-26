@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const DiscordBot = () => {
   return (
-    <div className={`${styles.discordBot} animate-bounce hover:animate-none`}>
+    <div className={`${styles.discordBot} lg:animate-bounce hover:animate-none bg-transparent rounded-[50%] p-[5px]`}>
       <Link
         href="https://discord.com/invite/HK3UjfMJ"
         rel="noopener noreferrer"
