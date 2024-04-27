@@ -41,3 +41,9 @@
     overflow: hidden;
   }
   
+  .linkContainer:hover p {
+    color: white !important;
+  }
+  .linkContainerUA:hover p {
+    color: black !important;
+  }

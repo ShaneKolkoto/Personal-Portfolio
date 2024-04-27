@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import styles from "./styles.module.css"; // Import CSS file for styling
 
 const Projects: React.FC<{}> = () => {
   return (
@@ -19,7 +20,7 @@ const Projects: React.FC<{}> = () => {
             target="_blank"
             className="z-[1] h-full hover:bg-[#eb1d25] transition-all duration-500 ease-in-out w-full"
           >
-            <div className="flex-row flex gap-0 lg:gap-[10px]">
+            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainer}`}>
               <Image
                 src="/Vans-logo.jpeg"
                 height={10}
@@ -29,7 +30,7 @@ const Projects: React.FC<{}> = () => {
               />
               <div className="p-0 lg:p-3 px-[10px] lg:px-0 w-full">
                 <p className="text-white font-semibold text-xl">Vans SA</p>
-                <p className="text-gray-500 hover:text-white text-[8px] lg:text-[10px]">
+                <p className="text-gray-500 text-[8px] lg:text-[10px]">
                   I had the privilege of contributing to the enhancement of the
                   Vans South Africa website. My primary focus revolved around
                   refining the user experience for both the account and wishlist
@@ -44,7 +45,7 @@ const Projects: React.FC<{}> = () => {
             target="_blank"
             className="z-[1] h-full hover:bg-[#024089] transition-all duration-500 ease-in-out w-full"
           >
-            <div className="flex-row flex gap-0 lg:gap-[10px]">
+            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainer}`}>
               <Image
                 src="/Birkenstock-logo.png"
                 height={250}
@@ -56,7 +57,7 @@ const Projects: React.FC<{}> = () => {
                 <p className="text-white font-semibold text-xl">
                   Birkenstock SA
                 </p>
-                <p className="text-gray-500 hover:text-white text-[8px] lg:text-[10px]">
+                <p className="text-gray-500 text-[8px] lg:text-[10px]">
                   I had the opportunity to further elevate the Birkenstock SA
                   website. My role in this project primarily involved
                   implementing updates and integrating new features, with a
@@ -74,7 +75,7 @@ const Projects: React.FC<{}> = () => {
             target="_blank"
             className="z-[1] h-full hover:bg-[#86bc06] transition-all duration-500 ease-in-out w-full"
           >
-            <div className="flex-row flex gap-0 lg:gap-[10px]">
+            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainer}`}>
               <Image
                 src="/Crocs-logo.jpeg"
                 height={150}
@@ -84,7 +85,7 @@ const Projects: React.FC<{}> = () => {
               />
               <div className=" p-0 lg:p-3 px-[10px] lg:px-0 w-full ">
                 <p className="text-white font-semibold text-xl">Crocs SA</p>
-                <p className="text-gray-500 hover:text-white text-[8px] lg:text-[10px]">
+                <p className="text-gray-500 text-[8px] lg:text-[10px]">
                   I had the privilege of contributing to the enhancement of the
                   Crocs South Africa website. My primary focus revolved around
                   refining the user experience.
@@ -96,21 +97,21 @@ const Projects: React.FC<{}> = () => {
             href="https://underarmour.co.za/"
             rel="noopener noreferrer"
             target="_blank"
-            className="z-[1] h-full hover:bg-[#000000] transition-all duration-500 ease-in-out w-full"
+            className="z-[1] h-full hover:bg-[#ffff] transition-all duration-500 ease-in-out w-full"
           >
-            <div className="flex-row flex gap-0 lg:gap-[10px]">
+            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainerUA}`}>
               <Image
-                src="/UA-logo.jpeg"
+                src="/UA-logo.png"
                 height={150}
                 width={150}
                 alt="Under Armour South Africa"
-                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
+                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[223px]"
               />
               <div className=" p-0 lg:p-3 px-[10px] lg:px-0 w-full">
                 <p className="text-white font-semibold text-xl">
                   Under Armour SA
                 </p>
-                <p className="text-gray-500 hover:text-white text-[8px] lg:text-[10px]">
+                <p className="text-gray-500 text-[8px] lg:text-[10px]">
                   I had the opportunity to further elevate the Under Armour Website and Mobile App. My role in this project primarily involved
                   implementing and integrating new features, with a special focus on enhancing the API on v4 Release.
                 </p>

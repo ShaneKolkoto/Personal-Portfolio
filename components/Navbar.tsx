@@ -5,9 +5,9 @@ import React from "react";
 
 const Navbar: React.FC<{}> = () => {
   return (
-    <div className="w-full h-[65px] bg-['#111'] fixed backdrop-blur-sm z-50 px-10">
-      <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
-        <a href="/" className="h-auto w-auto flex flex-row items-center">
+    <div className="w-full h-[65px] bg-['#111'] fixed backdrop-blur-sm z-50 md:px-10">
+      <div className="w-full h-full flex flex-row items-center justify-between m-auto md:px-[10px]">
+        <a href="/" className="h-auto w-auto md:flex hidden flex-row items-center">
           <Image
             src="/Logo.svg"
             alt="logo"
@@ -18,7 +18,7 @@ const Navbar: React.FC<{}> = () => {
           />
         </a>
 
-        <div className="flex flex-row gap-5">
+        <div className="flex flex-row gap-0 md:gap-5 w-full md:w-auto justify-between">
           <a
            href="https://medium.com/@shanekolkoto"
            target="_blank"
