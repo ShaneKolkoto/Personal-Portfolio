@@ -1,127 +1,125 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import styles from "./styles.module.css"; // Import CSS file for styling
+import React, { useState, useEffect } from "react";
+import styles from "./styles.module.css"; // Import CSS file for additional styling
 
-const Projects: React.FC<{}> = () => {
+interface Project {
+  title: string;
+  image: string;
+  alt: string;
+  link: string;
+  description: string;
+  tool_stacks: string[];
+}
+
+interface ProjectsProps {
+  projects: Project[];
+}
+
+const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [openProjectIndex, setOpenProjectIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Check on initial render
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleClick = (index: number) => {
+    if (isMobile) {
+      setOpenProjectIndex(index === openProjectIndex ? null : index);
+    }
+  };
+
+  const handleArrowClick = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+    e.stopPropagation();
+    handleClick(index);
+  };
+
   return (
-    <section id="projects">
+    <section id="projects" className="z-[20]">
       <h1 className="text-white font-semibold text-center text-6xl pt-[35px]">
         PROJECTS WORKED ON
       </h1>
-      <p className=" tracking-[0.5em] text-center text-transparent font-light pb-5  bg-clip-text bg-gradient-to-r from-purple-700 to-orange-500  text-1xl ">
+      <p className="tracking-[0.5em] text-center text-transparent font-light pb-5 bg-clip-text bg-gradient-to-r from-purple-700 to-orange-500 text-1xl">
         EXPLORE NOW
       </p>
-      <div className="container !max-w-[1440px] mx-auto 2xl flex flex-col gap-[15px]">
-        <div className="flex-col flex md:flex-row  mt-7 gap-[10px]">
-          <Link
-            href="https://vans.co.za/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1] h-full hover:bg-[#eb1d25] transition-all duration-500 ease-in-out w-full"
+      <div className="container !max-w-[1440px] mx-auto grid gap-[10px] sm:grid-cols-2 md:grid-cols-3">
+        {projects.map((project, index) => (
+          <div
+            className="relative z-10 group block overflow-hidden cursor-pointer"
+            key={index}
+            onClick={() => handleClick(index)}
           >
-            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainer}`}>
-              <Image
-                src="/Vans-logo.jpeg"
-                height={10}
-                width={150}
-                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
-                alt="vans-clone"
-              />
-              <div className="p-0 lg:p-3 px-[10px] lg:px-0 w-full">
-                <p className="text-white font-semibold text-xl">Vans SA</p>
-                <p className="text-gray-500 text-[8px] lg:text-[10px]">
-                  I had the privilege of contributing to the enhancement of the
-                  Vans South Africa website. My primary focus revolved around
-                  refining the user experience for both the account and wishlist
-                  pages.
-                </p>
+            <Image
+              src={project.image}
+              height={250}
+              width={250}
+              className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
+              alt={project.alt}
+            />
+            {isMobile && (
+              <div
+                className={`absolute right-0 top-[20%] h-1/2 transform cursor-pointer p-2 ${styles.arrowButton} ${openProjectIndex === index ? styles.arrowRotated : ''}`}
+                onClick={(e) => handleArrowClick(e, index)}
+              >
+                <Image
+                  src="/arrow.png" // Replace with your arrow image path
+                  height={24}
+                  width={24}
+                  alt="Arrow"
+                />
+              </div>
+            )}
+            <div
+              className={`absolute inset-0 bg-black bg-opacity-75 p-4 text-white transform ${
+                isMobile ? (openProjectIndex === index ? "translate-x-0" : "translate-x-full") : "translate-x-full group-hover:translate-x-0"
+              } transition-transform duration-500 ease-in-out`}
+            >
+              <div className="flex flex-col justify-between gap-2 h-full">
+                <p className="text-xl font-semibold">{project.title}</p>
+                <p className="text-sm mb-4">{project.description}</p>
+                <div className="flex flex-row justify-between gap-2">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tool_stacks.map((tool: string, idx) => (
+                      <Image
+                        key={idx}
+                        src={tool}
+                        height={30}
+                        width={30}
+                        alt={`Tool ${idx}`}
+                        className={`object-contain ${
+                          tool.includes("next") ? "invert" : ""
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <Link
+                    href={project.link}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className="hover:text-red-400"
+                  >
+                    Visit
+                  </Link>
+                </div>
               </div>
             </div>
-          </Link>
-          <Link
-            href="https://bashafrica.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1] h-full hover:bg-[#024089] transition-all duration-500 ease-in-out w-full"
-          >
-            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainer}`}>
-              <Image
-                src="/Birkenstock-logo.png"
-                height={250}
-                width={150}
-                alt="Birkenstock"
-                className=" h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
-              />
-              <div className="p-0 lg:p-3 px-[10px] lg:px-0 w-full">
-                <p className="text-white font-semibold text-xl">
-                  Birkenstock SA
-                </p>
-                <p className="text-gray-500 text-[8px] lg:text-[10px]">
-                  I had the opportunity to further elevate the Birkenstock SA
-                  website. My role in this project primarily involved
-                  implementing updates and integrating new features, with a
-                  special focus on enhancing the product cards and refining the
-                  filtering system.
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
-        <div className="flex-col flex md:flex-row gap-[10px]">
-          <Link
-            href="https://crocssa.co.za/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1] h-full hover:bg-[#86bc06] transition-all duration-500 ease-in-out w-full"
-          >
-            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainer}`}>
-              <Image
-                src="/Crocs-logo.jpeg"
-                height={150}
-                width={150}
-                alt="Crocs South Africa"
-                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
-              />
-              <div className=" p-0 lg:p-3 px-[10px] lg:px-0 w-full ">
-                <p className="text-white font-semibold text-xl">Crocs SA</p>
-                <p className="text-gray-500 text-[8px] lg:text-[10px]">
-                  I had the privilege of contributing to the enhancement of the
-                  Crocs South Africa website. My primary focus revolved around
-                  refining the user experience.
-                </p>
-              </div>
-            </div>
-          </Link>
-          <Link
-            href="https://underarmour.co.za/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1] h-full hover:bg-[#ffff] transition-all duration-500 ease-in-out w-full"
-          >
-            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainerUA}`}>
-              <Image
-                src="/UA-logo.png"
-                height={150}
-                width={150}
-                alt="Under Armour South Africa"
-                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[223px]"
-              />
-              <div className=" p-0 lg:p-3 px-[10px] lg:px-0 w-full">
-                <p className="text-white font-semibold text-xl">
-                  Under Armour SA
-                </p>
-                <p className="text-gray-500 text-[8px] lg:text-[10px]">
-                  I had the opportunity to further elevate the Under Armour Website and Mobile App. My role in this project primarily involved
-                  implementing and integrating new features, with a special focus on enhancing the API on v4 Release.
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
 export default Projects;
+
+

@@ -4,7 +4,7 @@ import "./globals.css";
 import StarsCanvas from "@/components/main/StarsBackground";
 import Navbar from "@/components/Navbar";
 import DiscordBot from "@/components/DiscordBot";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +14,15 @@ export const metadata: Metadata = {
   ),
   title: "Shane Kolkoto Portfolio",
   description: "Developer Portfolio By Shane Kolkoto",
-  keywords: ["Fullstack Developer","Developer", "Portfolio", "Developer Portflio", "Shane Kolkoto", "Web Developer", "Portfolio"],
+  keywords: [
+    "Fullstack Developer",
+    "Developer",
+    "Portfolio",
+    "Developer Portflio",
+    "Shane Kolkoto",
+    "Web Developer",
+    "Portfolio",
+  ],
   openGraph: {
     title: "Shane Kolkoto",
     description: "Fullstack Developer",

@@ -110,3 +110,81 @@ export const experience = [
     link: "https://lcstudio.co.za/"
   },
 ];
+
+export const clients = [
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+  {
+    title: "Ariam",
+    image: "/Ariam.svg",
+    link: "#",
+  },
+]
+
+export const projects = [
+  {
+    title: "Virtual Ubuntu OS, Porfolio",
+    image: "/Ubuntu.png",
+    alt: "Virual Ubuntu Portfolio",
+    link: "https://shanekolkotoportfolio.netlify.app/",
+    description: "This is a personal portfolio website of theme Ubuntu 20.04, made using Next.js & tailwind CSS.",
+    tool_stacks: [
+      '/next.svg',
+      '/tailwind.png'
+    ],
+  },
+  {
+    title: "Invoice Wizard",
+    image: "/vue-invoice.png",
+    alt: "Firebase.png",
+    link: "https://shanekolkotoportfolio.netlify.app/",
+    description: "A Modern Approach to Invoice Creation and Management",
+    tool_stacks: [
+      '/Vuejs.png',
+      '/Firebase.png'
+    ],
+  },
+]

@@ -3,7 +3,10 @@ import Banner from "@/components/Banner";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
+import Clients from "@/components/PersonlClients";
 import Projects from "@/components/Projects";
+
+import { clients, projects } from '@/constant';
 
 export default function Home() {
   return (
@@ -13,7 +16,8 @@ export default function Home() {
         <About />
         <Skills />
         <Experience />
-        <Projects />
+        <Clients clients={clients}/>
+        <Projects projects={projects}/>
         <Footer />
       </div>
     </main>

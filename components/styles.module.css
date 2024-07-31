@@ -47,3 +47,63 @@
   .linkContainerUA:hover p {
     color: black !important;
   }
+
+  .descriptionContainer {
+    transform: translateX(100%);
+  }
+  
+  .group:hover .descriptionContainer {
+    transform: translateX(0%);
+  }
+
+  @media (min-width: 768px) {
+    .group:hover .group-hover\:scale-105 {
+      transform: scale(1.05);
+    }
+    .group:hover .group-hover\:translate-x-0 {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Click effects for mobile */
+  @media (max-width: 767px) {
+    .group {
+      position: relative;
+    }
+    .group .group-hover\:translate-x-full {
+      transform: translateX(100%);
+    }
+    .group .group-hover\:translate-x-0 {
+      transform: translateX(0);
+    }
+  }
+
+
+  .arrowButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    border-radius: 50%;
+    z-index: 20;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for both color and rotation */
+  }
+  
+  /* Arrow button hover effect */
+  .arrowButton:hover {
+    /* background-color: rgba(0, 0, 0, 0.8); */
+  }
+  
+  /* Arrow rotation styles */
+  .arrowRotated {
+    transform: rotate(180deg); /* Rotate arrow 180 degrees */
+  }
+  
+  /* Ensure arrow button is hidden on desktop */
+  @media (min-width: 768px) {
+    .arrowButton {
+      display: none;
+    }
+  }
+
+  
