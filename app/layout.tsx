@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import DiscordBot from "@/components/DiscordBot";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
