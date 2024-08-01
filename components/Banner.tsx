@@ -27,7 +27,14 @@ const Banner: React.FC<{}> = () => {
               Chill
             </span>
           </p>
-          <Image src="/popcorn.gif" height={50} width={50} alt="chill" />
+          <Image
+            src="/popcorn.gif"
+            height={50}
+            width={50}
+            alt="chill"
+            sizes="50px"
+            className="w-auto h-auto" // Use inline-block or other classes as needed for layout
+          />{" "}
         </div>
 
         <p className="lg:text-md text-[10px] text-gray-200 lg:mt-5 mt-[0.25rem] mb-5  max-w-[600px]">
