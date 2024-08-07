@@ -37,7 +37,7 @@ const ClientSlider: React.FC<ClientSliderProps> = ({ clients }) => {
   return (
     <section id="clients" className="z-[20]">
       <h1 className="text-white font-semibold text-center text-6xl pt-[35px]">
-        HAPPY CLIENTS
+        BRANDS WORKED WITH
       </h1>
       <p className=" tracking-[0.5em] text-center text-transparent font-light pb-5  bg-clip-text bg-gradient-to-r from-purple-700 to-orange-500  text-1xl ">
         EXPLORE NOW
@@ -88,7 +88,7 @@ const ClientSlider: React.FC<ClientSliderProps> = ({ clients }) => {
               ))}
             </div>
           ) : (
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-4">
               {clients.map((client, index) => (
                 <div key={index} className="p-2">
                   <Link

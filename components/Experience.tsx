@@ -22,7 +22,7 @@ const Experience: React.FC<{}> = () => {
               {exp.description2 &&  <p className="text-gray-300 pt-5">{exp.description2}</p>}
               <div className="grid lg:grid-cols-5 grid-cols-3">
                 {exp.skills.map((skill, index) => (
-                  <div key={index}  className={`bg-transparent text-center mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-full`}>
+                  <div key={index}  className={`bg-transparent text-center mt-5 mr-2 rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-full`}>
                     {skill}
                   </div>
                 ))}

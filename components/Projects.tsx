@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +12,7 @@ interface Project {
   link: string;
   description: string;
   tool_stacks: string[];
+  category: string;
 }
 
 interface ProjectsProps {
@@ -21,6 +22,9 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [openProjectIndex, setOpenProjectIndex] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<
+    "all" | "frontend" | "backend" | "fullstack"
+  >("all");
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,10 +43,32 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     }
   };
 
-  const handleArrowClick = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+  const handleArrowClick = (
+    e: React.MouseEvent<HTMLDivElement>,
+    index: number
+  ) => {
     e.stopPropagation();
     handleClick(index);
   };
+
+  const handleCategoryChange = (
+    category: "all" | "frontend" | "backend" | "fullstack"
+  ) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredProjects =
+    selectedCategory === "all"
+      ? projects
+      : projects.filter((project) => project.category === selectedCategory);
+
+  const projectCategories = projects.reduce(
+    (acc, project) => {
+      acc[project.category] += 1;
+      return acc;
+    },
+    { frontend: 0, backend: 0, fullstack: 0 }
+  );
 
   return (
     <section id="projects" className="z-[20]">
@@ -52,10 +78,58 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       <p className="tracking-[0.5em] text-center text-transparent font-light pb-5 bg-clip-text bg-gradient-to-r from-purple-700 to-orange-500 text-1xl">
         EXPLORE NOW
       </p>
+      <div className="flex justify-center mb-8">
+        <button
+          className={`w-[100px] uppercase rounded-md px-4 py-1 mx-2 transition-colors duration-300 ${
+            selectedCategory === "all"
+              ? "bg-gradient-to-r from-purple-700 to-orange-500 text-white"
+              : "text-white border border-white bg-black bg-opacity-60"
+          }`}
+          onClick={() => handleCategoryChange("all")}
+        >
+          ALL
+        </button>
+        {projectCategories.frontend > 0 && (
+          <button
+            className={`uppercase rounded-md px-4 py-1 mx-2 transition-colors duration-300 ${
+              selectedCategory === "frontend"
+                ? "bg-gradient-to-r from-purple-700 to-orange-500 text-white"
+                : "text-white border border-white bg-black bg-opacity-60"
+            }`}
+            onClick={() => handleCategoryChange("frontend")}
+          >
+            Frontend
+          </button>
+        )}
+        {projectCategories.backend > 0 && (
+          <button
+            className={`uppercase rounded-md px-4 py-1 mx-2 transition-colors duration-300 ${
+              selectedCategory === "backend"
+                ? "bg-gradient-to-r from-purple-700 to-orange-500 text-white"
+                : "text-white border border-white bg-black bg-opacity-60"
+            }`}
+            onClick={() => handleCategoryChange("backend")}
+          >
+            Backend
+          </button>
+        )}
+        {projectCategories.fullstack > 0 && (
+          <button
+            className={`uppercase rounded-md px-4 py-1 mx-2 transition-colors duration-300 ${
+              selectedCategory === "fullstack"
+                ? "bg-gradient-to-r from-purple-700 to-orange-500 text-white"
+                : "text-white border border-white bg-black bg-opacity-60"
+            }`}
+            onClick={() => handleCategoryChange("fullstack")}
+          >
+            Fullstack
+          </button>
+        )}
+      </div>
       <div className="container !max-w-[1440px] mx-auto grid gap-[10px] sm:grid-cols-2 md:grid-cols-3">
-        {projects.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <div
-            className="relative z-10 group block overflow-hidden cursor-pointer"
+            className="relative z-10 group block overflow-hidden cursor-pointer h-[220px]"
             key={index}
             onClick={() => handleClick(index)}
           >
@@ -68,7 +142,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             />
             {isMobile && (
               <div
-                className={`absolute right-0 top-[20%] h-1/2 transform cursor-pointer p-2 ${styles.arrowButton} ${openProjectIndex === index ? styles.arrowRotated : ''}`}
+                className={`absolute right-0 top-[20%] h-1/2 transform cursor-pointer p-2 ${
+                  styles.arrowButton
+                } ${openProjectIndex === index ? styles.arrowRotated : ""}`}
                 onClick={(e) => handleArrowClick(e, index)}
               >
                 <Image
@@ -81,7 +157,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             )}
             <div
               className={`absolute inset-0 bg-black bg-opacity-75 p-4 text-white transform ${
-                isMobile ? (openProjectIndex === index ? "translate-x-0" : "translate-x-full") : "translate-x-full group-hover:translate-x-0"
+                isMobile
+                  ? openProjectIndex === index
+                    ? "translate-x-0"
+                    : "translate-x-full"
+                  : "translate-x-full group-hover:translate-x-0"
               } transition-transform duration-500 ease-in-out`}
             >
               <div className="flex flex-col justify-between gap-2 h-full">
@@ -108,7 +188,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     target="_blank"
                     className="hover:text-red-400"
                   >
-                    Visit
+                    Visit {index % 2 === 0 ? "🛸" : "👽"}
                   </Link>
                 </div>
               </div>
@@ -121,5 +201,3 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 };
 
 export default Projects;
-
-

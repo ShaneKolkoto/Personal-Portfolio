@@ -5,6 +5,7 @@ import StarsCanvas from "@/components/main/StarsBackground";
 import Navbar from "@/components/Navbar";
 import DiscordBot from "@/components/DiscordBot";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react"
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -44,8 +45,11 @@ export default function RootLayout({
       >
         <StarsCanvas />
         <Navbar />
-        <DiscordBot />
+       
         {children}
+        <DiscordBot />
+        <Analytics />
+
       </body>
     </html>
   );

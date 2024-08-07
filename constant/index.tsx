@@ -118,48 +118,18 @@ export const clients = [
     link: "#",
   },
   {
-    title: "Ariam",
-    image: "/Ariam.svg",
+    title: "Under Armour",
+    image: "/UA-Logo.jpeg",
     link: "#",
   },
   {
-    title: "Ariam",
-    image: "/Ariam.svg",
+    title: "Birkenstock",
+    image: "/Birkenstock-logo.png",
     link: "#",
   },
   {
-    title: "Ariam",
-    image: "/Ariam.svg",
-    link: "#",
-  },
-  {
-    title: "Ariam",
-    image: "/Ariam.svg",
-    link: "#",
-  },
-  {
-    title: "Ariam",
-    image: "/Ariam.svg",
-    link: "#",
-  },
-  {
-    title: "Ariam",
-    image: "/Ariam.svg",
-    link: "#",
-  },
-  {
-    title: "Ariam",
-    image: "/Ariam.svg",
-    link: "#",
-  },
-  {
-    title: "Ariam",
-    image: "/Ariam.svg",
-    link: "#",
-  },
-  {
-    title: "Ariam",
-    image: "/Ariam.svg",
+    title: "Crocs",
+    image: "/Crocs-logo.jpeg",
     link: "#",
   },
 ]
@@ -175,6 +145,19 @@ export const projects = [
       '/next.svg',
       '/tailwind.png'
     ],
+    category: "frontend"
+  },
+  {
+    title: "Health Concept",
+    image: "/health-concept.png",
+    alt: "Health Concept",
+    link: "https://sk-health-concept-app.netlify.app/",
+    description: "A Health Dashboard concept, created with vue and vurtify",
+    tool_stacks: [
+      '/Vuejs.png',
+      '/vuetify.png',
+    ],
+    category: "frontend"
   },
   {
     title: "Invoice Wizard",
@@ -186,5 +169,6 @@ export const projects = [
       '/Vuejs.png',
       '/Firebase.png'
     ],
+    category: "fullstack"
   },
 ]
