@@ -63,7 +63,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       : projects.filter((project) => project.category === selectedCategory);
 
   const projectCategories = projects.reduce(
-    (acc, project) => {
+    (acc: any, project: any) => {
       acc[project.category] += 1;
       return acc;
     },
