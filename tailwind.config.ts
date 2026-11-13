@@ -10,10 +10,10 @@ const config: Config = {
     container: {
       padding: {
         DEFAULT: "1rem",
-        sm: "2rem",
-        lg: "4rem",
-        xl: "15rem",
-        "2xl": "22rem",
+        sm: "1.5rem",
+        lg: "2rem",
+        xl: "2rem",
+        "2xl": "2rem",
       },
     },
     extend: {

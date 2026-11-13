@@ -6,3 +6,131 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 0;
+  background:
+    radial-gradient(ellipse at 50% -20%, rgb(91 33 182 / 14%), transparent 48rem),
+    #0b0b10;
+}
+
+::selection {
+  color: #fff;
+  background: #7c3aed;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #c084fc;
+  outline-offset: 4px;
+}
+
+.scroll-reveal {
+  opacity: 1;
+}
+
+.motion-ready .scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition:
+    opacity 750ms ease,
+    transform 750ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.motion-ready .scroll-reveal[data-effect="left"] {
+  transform: translate3d(-44px, 0, 0);
+}
+
+.motion-ready .scroll-reveal[data-effect="right"] {
+  transform: translate3d(44px, 0, 0);
+}
+
+.motion-ready .scroll-reveal[data-effect="scale"] {
+  transform: scale(0.96);
+}
+
+.motion-ready .scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: auto;
+}
+
+.portfolio-card {
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    background-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(192 132 252 / 45%);
+  background-color: rgb(255 255 255 / 7%);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 20%);
+}
+
+.project-card-link {
+  display: block;
+  height: 100%;
+  border-radius: 0.75rem;
+}
+
+.project-card-link .portfolio-card {
+  height: 100%;
+}
+
+.project-card-link:hover .portfolio-card,
+.project-card-link:focus-visible .portfolio-card {
+  transform: translateY(-6px);
+  border-color: rgb(192 132 252 / 65%);
+  background-color: rgb(255 255 255 / 8%);
+  box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
+}
+
+.project-card-link img {
+  transition: transform 350ms ease;
+}
+
+.project-card-link:hover img,
+.project-card-link:focus-visible img {
+  transform: scale(1.04);
+}
+
+.parallax-layer {
+  transition: transform 80ms linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-reveal,
+  .motion-ready .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .project-card-link:hover .portfolio-card,
+  .project-card-link:focus-visible .portfolio-card {
+    transform: none;
+  }
+}

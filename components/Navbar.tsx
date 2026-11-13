@@ -1,48 +1,39 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
 
-const Navbar: React.FC<{}> = () => {
+export default function Navbar() {
   return (
-    <div className="w-full h-[65px] bg-['#111'] fixed backdrop-blur-sm z-50 md:px-10">
-      <div className="w-full h-full flex flex-row items-center justify-between m-auto md:px-[10px]">
-        <a href="/" className="h-auto w-auto md:flex hidden flex-row items-center">
-          <Image
-            src="/Logo.svg"
-            alt="logo"
-            width={100}
-            height={100}
-            sizes="100vw"
-            className="w-full h-auto"
-          />
+    <header className="fixed z-50 h-[65px] w-full border-b border-white/[0.08] bg-[#0b0b10]/85 px-3 backdrop-blur-xl sm:px-6 md:px-10">
+      <nav aria-label="Main navigation" className="mx-auto flex h-full max-w-7xl items-center justify-between gap-2">
+        <a href="/" aria-label="Home" className="flex shrink-0">
+          <Image src="/Logo.svg" alt="" width={100} height={40} className="h-auto w-14 sm:w-[90px]" />
         </a>
-
-        <div className="flex flex-row gap-0 md:gap-5 w-full md:w-auto justify-between">
+        <div className="flex min-w-0 items-center justify-end gap-1 sm:gap-3">
           <a
-           href="https://medium.com/@shanekolkoto"
-           target="_blank"
-            className=" z-[1]  bg-transparent  padding-10 cursor-pointer bg-black hover:bg-[#2E2E2E] rounded-xl  text-white  py-2 px-5"
+            href="https://medium.com/@shanekolkoto"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl px-2 py-2 text-xs text-white transition-colors hover:bg-white/10 sm:px-4 sm:text-sm"
           >
             Blog
           </a>
           <a
-           href="https://shanekolkotoportfolio.netlify.app"
-           target="_blank"
-            className=" z-[1]  bg-transparent  padding-10 cursor-pointer bg-black hover:bg-[#2E2E2E] rounded-xl  text-white  py-2 px-5"
+            href="https://shanekolkotoportfolio.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl px-2 py-2 text-xs text-white transition-colors hover:bg-white/10 sm:px-4 sm:text-sm"
           >
-            Virtual Pc 💻
+            <span className="sm:hidden">PC</span><span className="hidden sm:inline">Virtual PC</span> <span aria-hidden="true">💻</span>
           </a>
-          <div
-            onClick={() => window.open("mailto:shanekolkoto@gmail.com")}
-            className=" z-[1] bg-transparent  padding-10 cursor-pointer bg-black hover:bg-[#2E2E2E] rounded-xl  text-white  py-2 px-5"
+          <a
+            href="/#contact"
+            className="rounded-xl bg-white/5 px-2 py-2 text-xs text-white transition-colors hover:bg-white/10 sm:px-4 sm:text-sm"
           >
             Contact
-          </div>
+          </a>
         </div>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
-};
-
-export default Navbar;
+}

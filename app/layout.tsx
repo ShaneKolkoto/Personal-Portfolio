@@ -13,13 +13,42 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     "https://personal-portfolio-dxm0vcep9-shane-kolkotos-projects.vercel.app/"
   ),
-  title: "Shane Kolkoto Portfolio",
-  description: "Developer Portfolio By Shane Kolkoto",
-  keywords: ["Fullstack Developer","Developer", "Portfolio", "Developer Portflio", "Shane Kolkoto", "Web Developer", "Portfolio"],
+  title: {
+    default: "Shane Kolkoto | Software Developer",
+    template: "%s | Shane Kolkoto",
+  },
+  description:
+    "Explore the software development portfolio, projects, experience, and skills of Shane Kolkoto.",
+  applicationName: "Shane Kolkoto Portfolio",
+  authors: [{ name: "Shane Kolkoto" }],
+  creator: "Shane Kolkoto",
+  keywords: [
+    "Shane Kolkoto",
+    "software developer",
+    "full-stack developer",
+    "web development",
+    "portfolio",
+  ],
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   openGraph: {
-    title: "Shane Kolkoto",
-    description: "Fullstack Developer",
+    type: "website",
+    title: "Shane Kolkoto | Software Developer",
+    description:
+      "Explore the software development portfolio, projects, experience, and skills of Shane Kolkoto.",
+    siteName: "Shane Kolkoto Portfolio",
     images: "/Me.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shane Kolkoto | Software Developer",
+    description:
+      "Explore the software development portfolio, projects, experience, and skills of Shane Kolkoto.",
+    images: ["/Me.png"],
   },
 };
 

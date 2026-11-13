@@ -1,32 +1,20 @@
-import React from "react";
+import type { CvData } from "@/lib/cv";
 
-const About: React.FC<{}> = () => {
+type Props = { profile: NonNullable<CvData["profile"]> };
+
+export default function About({ profile }: Props) {
+  if (!profile.about) return null;
+
   return (
-    <div
+    <section
       id="about"
-      className="flex flex-col items-center justify-center h-full relative overflow-hidden pt-[35px] z-[20] cursor-default"
-      style={{ transform: "scale(0.9)" }}
+      className="relative z-10 mx-auto w-full max-w-5xl scroll-mt-24 px-5 py-12 sm:px-8 sm:py-16"
     >
-      <div className="flex flex-col  justify-around flex-wrap items-center   max-w-[900px]">
-        <h1 className="text-white font-semibold text-6xl">ABOUT ME</h1>
-        <p className=" tracking-[0.5em] text-transparent font-light pb-5  bg-clip-text bg-gradient-to-r from-purple-700 to-orange-500  text-1xl">
-          EXPLORE NOW
-        </p>
-        <p className="text-gray-300 text-center ">
-        As a passionate full-stack developer, I revel in the delicate balance between logic and creativity. Currently deeply immersed in the dynamic world of shopify, where I seamlessly integrate technology with innovation.
-          <br />
-          <br />
-          With a fervor for crafting elegant solutions, I navigate the
-          ever-evolindex and scape of software development. My journey involves
-          translating concepts into code, creating seamless user experiences,
-          and constantly pushing the boundaries of what&#39;s possible
-          <br />
-          <br />
-          In my personal time, I love watching anime, listening to music, taking my Rottweiler on walks, writing blogs on <a href="https://medium.com/@shanekolkoto" className="font-bold underline"> Medium</a> and spending time with the people close to me.
-        </p>
+      <div className="rounded-3xl border border-white/[0.08] bg-white/[0.035] p-6 shadow-2xl shadow-black/10 sm:p-10 lg:p-14">
+        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-purple-300">A little about me</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">About</h2>
+        <p className="mt-5 whitespace-pre-line text-base leading-7 text-white/70 sm:text-lg sm:leading-8">{profile.about}</p>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default About;
+}

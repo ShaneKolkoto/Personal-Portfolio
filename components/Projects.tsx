@@ -1,127 +1,69 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import styles from "./styles.module.css"; // Import CSS file for styling
+import type { CvData } from "@/lib/cv";
+import { projectSlug } from "@/lib/projects";
 
-const Projects: React.FC<{}> = () => {
-  return (
-    <section id="projects">
-      <h1 className="text-white font-semibold text-center text-6xl pt-[35px]">
-        PROJECTS WORKED ON
-      </h1>
-      <p className=" tracking-[0.5em] text-center text-transparent font-light pb-5  bg-clip-text bg-gradient-to-r from-purple-700 to-orange-500  text-1xl ">
-        EXPLORE NOW
-      </p>
-      <div className="container !max-w-[1440px] mx-auto 2xl flex flex-col gap-[15px]">
-        <div className="flex-col flex md:flex-row  mt-7 gap-[10px]">
-          <Link
-            href="https://vans.co.za/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1] h-full hover:bg-[#eb1d25] transition-all duration-500 ease-in-out w-full"
-          >
-            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainer}`}>
-              <Image
-                src="/Vans-logo.jpeg"
-                height={10}
-                width={150}
-                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
-                alt="vans-clone"
-              />
-              <div className="p-0 lg:p-3 px-[10px] lg:px-0 w-full">
-                <p className="text-white font-semibold text-xl">Vans SA</p>
-                <p className="text-gray-500 text-[8px] lg:text-[10px]">
-                  I had the privilege of contributing to the enhancement of the
-                  Vans South Africa website. My primary focus revolved around
-                  refining the user experience for both the account and wishlist
-                  pages.
-                </p>
-              </div>
-            </div>
-          </Link>
-          <Link
-            href="https://bashafrica.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1] h-full hover:bg-[#024089] transition-all duration-500 ease-in-out w-full"
-          >
-            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainer}`}>
-              <Image
-                src="/Birkenstock-logo.png"
-                height={250}
-                width={150}
-                alt="Birkenstock"
-                className=" h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
-              />
-              <div className="p-0 lg:p-3 px-[10px] lg:px-0 w-full">
-                <p className="text-white font-semibold text-xl">
-                  Birkenstock SA
-                </p>
-                <p className="text-gray-500 text-[8px] lg:text-[10px]">
-                  I had the opportunity to further elevate the Birkenstock SA
-                  website. My role in this project primarily involved
-                  implementing updates and integrating new features, with a
-                  special focus on enhancing the product cards and refining the
-                  filtering system.
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
-        <div className="flex-col flex md:flex-row gap-[10px]">
-          <Link
-            href="https://crocssa.co.za/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1] h-full hover:bg-[#86bc06] transition-all duration-500 ease-in-out w-full"
-          >
-            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainer}`}>
-              <Image
-                src="/Crocs-logo.jpeg"
-                height={150}
-                width={150}
-                alt="Crocs South Africa"
-                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[435px]"
-              />
-              <div className=" p-0 lg:p-3 px-[10px] lg:px-0 w-full ">
-                <p className="text-white font-semibold text-xl">Crocs SA</p>
-                <p className="text-gray-500 text-[8px] lg:text-[10px]">
-                  I had the privilege of contributing to the enhancement of the
-                  Crocs South Africa website. My primary focus revolved around
-                  refining the user experience.
-                </p>
-              </div>
-            </div>
-          </Link>
-          <Link
-            href="https://underarmour.co.za/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1] h-full hover:bg-[#ffff] transition-all duration-500 ease-in-out w-full"
-          >
-            <div className={`flex-row flex gap-0 lg:gap-[10px] ${styles.linkContainerUA}`}>
-              <Image
-                src="/UA-logo.png"
-                height={150}
-                width={150}
-                alt="Under Armour South Africa"
-                className="h-[100px] lg:h-[150px] w-[90px] lg:w-[223px]"
-              />
-              <div className=" p-0 lg:p-3 px-[10px] lg:px-0 w-full">
-                <p className="text-white font-semibold text-xl">
-                  Under Armour SA
-                </p>
-                <p className="text-gray-500 text-[8px] lg:text-[10px]">
-                  I had the opportunity to further elevate the Under Armour Website and Mobile App. My role in this project primarily involved
-                  implementing and integrating new features, with a special focus on enhancing the API on v4 Release.
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
+type Props = {
+  projects: NonNullable<CvData["projects"]>;
+  hobbies: NonNullable<CvData["hobbies"]>;
 };
 
-export default Projects;
+export default function Projects({ projects, hobbies }: Props) {
+  const sortedProjects = [...projects].sort((a, b) => a.order - b.order);
+
+  return (
+    <>
+      {sortedProjects.length ? (
+        <section id="projects" className="scroll-mt-24 py-12 sm:py-16">
+          <div className="mx-auto mb-7 max-w-6xl px-5 sm:px-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-purple-300">Selected work</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Projects</h2>
+          </div>
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
+              {sortedProjects.map((project, index) => {
+                const image = project.imageUrl
+                  ? `/api/cv-image?url=${encodeURIComponent(project.imageUrl)}`
+                  : null;
+                const content = (
+                  <div className="portfolio-card flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.035]">
+                    {image ? (
+                      <div className="relative h-44 w-full overflow-hidden bg-white/5 sm:h-56">
+                        <Image src={image} fill unoptimized alt={`${project.title} project`} className="object-cover" />
+                      </div>
+                    ) : null}
+                    <div className="min-w-0 flex-1 p-5 sm:p-6">
+                      <h3 className="break-words text-lg font-semibold text-white sm:text-xl">{project.title}</h3>
+                      {project.description && <p className="mt-2 text-sm leading-6 text-white/60 sm:text-base sm:leading-7">{project.description}</p>}
+                    </div>
+                  </div>
+                );
+                const slug = projectSlug(project, index);
+                return (
+                  <Link key={`${project.title}-${index}`} href={`/projects/${slug}`} className="project-card-link">
+                    {content}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ) : null}
+      {hobbies.length ? (
+        <section className="mx-auto mt-8 max-w-6xl px-5 sm:px-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-purple-300">Outside of work</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">Interests</h2>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            {hobbies.map((hobby, index) => (
+              <article key={`${hobby.name}-${index}`} className="portfolio-card min-w-0 rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5 text-white/70 sm:p-6">
+                <h3 className="break-words font-semibold text-white">{hobby.name}</h3>
+                {hobby.description && <p className="mt-2 text-sm leading-6 sm:text-base sm:leading-7">{hobby.description}</p>}
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+    </>
+  );
+}

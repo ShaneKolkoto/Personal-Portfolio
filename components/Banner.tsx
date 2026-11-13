@@ -1,58 +1,42 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
+import type { CvData } from "@/lib/cv";
 
-const Banner: React.FC<{}> = () => {
+type Props = { profile: NonNullable<CvData["profile"]> };
+
+export default function Banner({ profile }: Props) {
+  const photo = profile.photoUrl
+    ? `/api/cv-image?url=${encodeURIComponent(profile.photoUrl)}`
+    : null;
+
   return (
-    <div className="flex flex-row items-center justify-center px-[20px]  md:px-20 mt-[60px] lg:mt-[150px] z-[20] ">
-      <div className="flex flex-col  justify-center  text-center">
-        <div className="justify-center flex ">
-          <Image
-            priority
-            src="/Me.png"
-            height={300}
-            width={300}
-            alt="Shane Kolkoto"
-          />
-        </div>
-
-        <div className="flex flex-col gap-6 mt-6 cursor-pointer lg:animate-bounce tracking-tighter text-[47px] lg:text-7xl font-semibold text-white max-w-[620px] w-auto h-auto">
-          I&apos;m Shane Kolkoto!
-        </div>
-        <div className="flex justify-center">
-          <p className="text-2xl font-medium tracking-tighter text-gray-300 max-w-[600px]">
-            I do Code &amp;{" "}
-            <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-500 to-orange-400">
-              Chill
-            </span>
-          </p>
-          <Image
-            src="/popcorn.gif"
-            height={50}
-            width={50}
-            alt="chill"
-            sizes="50px"
-            className="w-auto h-auto" // Use inline-block or other classes as needed for layout
-          />{" "}
-        </div>
-
-        <p className="lg:text-md text-[10px] text-gray-200 lg:mt-5 mt-[0.25rem] mb-5  max-w-[600px]">
-          Passionate Full Stack Developer adept in Node.js, Vue.js, React.js,
-          Firebase, PostgreSQL, MongoDB, Shopify, WordPress, PHP, and Python,
-          dedicated to crafting intuitive and seamless mobile applications.
+    <section className="relative z-10 mx-auto flex min-h-[78svh] w-full max-w-6xl flex-col items-center justify-center gap-8 px-5 pb-12 pt-28 sm:px-8 md:min-h-[82svh] md:flex-row md:gap-12 lg:gap-20">
+      <div className="relative shrink-0">
+        {photo ? (
+          <div className="rounded-full bg-gradient-to-br from-purple-400 via-fuchsia-500 to-orange-300 p-[3px] shadow-[0_0_70px_rgba(168,85,247,0.22)]">
+            <Image priority src={photo} height={300} width={300} alt={`${profile.fullName || "Profile"} portrait`} unoptimized className="h-36 w-36 rounded-full border-4 border-[#0b0b10] object-cover sm:h-48 sm:w-48 lg:h-64 lg:w-64" />
+          </div>
+        ) : null}
+      </div>
+      <div className="flex min-w-0 max-w-2xl flex-col items-center text-center md:items-start md:text-left">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-purple-300 sm:text-sm">
+          Personal portfolio
         </p>
-        <div className="text-md flex justify-center">
-          <button
-            onClick={() => window.open("mailto:shanekolkoto@gmail.com")}
-            className=" z-[1]     padding-20  hover:bg-white rounded-3xl  text-white font-semibold hover:text-black py-3 px-10  border-[0.1px] border-white hover:border-transparent "
-          >
-            Contact Me
-          </button>
+        {profile.fullName ? (
+          <h1 className="max-w-full break-words text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl">
+            I&apos;m {profile.fullName}
+          </h1>
+        ) : null}
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start">
+          {profile.email ? (
+            <a href={`mailto:${profile.email}`} className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#111] transition hover:-translate-y-0.5 hover:bg-purple-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-300">
+              Get in touch
+            </a>
+          ) : null}
+          <a href="#about" className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white/80 transition hover:border-white/40 hover:bg-white/5 hover:text-white">
+            About me <span className="ml-2" aria-hidden="true">↓</span>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Banner;
+}
