@@ -1,4 +1,6 @@
 import type { CvData } from "@/lib/cv";
+import Link from "next/link";
+import { experienceSlug, experienceSummary } from "@/lib/experience";
 
 type Props = {
   jobs: NonNullable<CvData["jobs"]>;
@@ -50,7 +52,10 @@ export default function Experience({ jobs, education, certifications }: Props) {
                   {[dateLabel(job.startDate), job.isCurrent ? "Present" : dateLabel(job.endDate)].filter(Boolean).join(" – ")}
                 </p>
               </div>
-              {job.description && <p className="mt-5 whitespace-pre-line text-sm leading-7 text-white/70 sm:text-base sm:leading-8">{job.description}</p>}
+              {job.description && <p className="mt-4 text-sm leading-7 text-white/70 sm:text-base">{experienceSummary(job.description)}</p>}
+              <Link href={`/experience/${experienceSlug(job, index)}`} className="mt-4 inline-flex min-h-10 items-center rounded-full border border-purple-300/30 px-4 py-2 text-sm font-medium text-purple-200 transition hover:border-purple-200 hover:bg-purple-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300">
+                View experience
+              </Link>
               {job.techStack?.length ? (
                 <ul className="mt-5 flex flex-wrap gap-2">
                   {job.techStack.filter(Boolean).map((skill, skillIndex) => (

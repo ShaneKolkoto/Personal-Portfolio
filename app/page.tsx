@@ -5,6 +5,7 @@ import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import Testimonials from "@/components/Testimonials";
 import { ParallaxBackground, ScrollReveal } from "@/components/ScrollEffects";
 import { getCv } from "@/lib/cv";
 
@@ -48,6 +49,9 @@ export default async function Home() {
         </ScrollReveal>
         <ScrollReveal effect="scale" delay={80}>
           <Projects projects={cv.projects ?? []} hobbies={cv.hobbies ?? []} />
+        </ScrollReveal>
+        <ScrollReveal effect="up">
+          <Testimonials testimonials={cv.testimonials ?? []} />
         </ScrollReveal>
         <ScrollReveal effect="up"><ContactForm /></ScrollReveal>
         <ScrollReveal effect="up"><Footer socials={cv.socials ?? []} /></ScrollReveal>

@@ -23,12 +23,17 @@ export default function Banner({ profile }: Props) {
         </p>
         {profile.fullName ? (
           <h1 className="max-w-full break-words text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl">
-            I&apos;m {profile.fullName}
+            Hey I&apos;m {profile.fullName}
           </h1>
+        ) : null}
+        {profile.jobTitle ? (
+          <p className="mt-4 text-base font-medium text-white/65 sm:text-lg">
+            {profile.jobTitle}
+          </p>
         ) : null}
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start">
           {profile.email ? (
-            <a href={`mailto:${profile.email}`} className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#111] transition hover:-translate-y-0.5 hover:bg-purple-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-300">
+            <a href="#contact" className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#111] transition hover:-translate-y-0.5 hover:bg-purple-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-300">
               Get in touch
             </a>
           ) : null}

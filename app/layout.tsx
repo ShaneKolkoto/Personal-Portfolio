@@ -65,7 +65,7 @@ export default function RootLayout({
       >
         <StarsCanvas />
         <Navbar />
-        <DiscordBot />
+        {/* <DiscordBot /> */}
         {children}
         <Analytics />
       </body>

@@ -12,3 +12,10 @@ export function projectSlug(project: Project, index: number) {
 
   return `${title || "project"}-${project.order}-${index + 1}`;
 }
+
+export function projectSummary(description?: string | null, maxLength = 180) {
+  if (!description) return "";
+  const normalized = description.replace(/\s+/g, " ").trim();
+  if (normalized.length <= maxLength) return normalized;
+  return `${normalized.slice(0, maxLength).trimEnd()}…`;
+}

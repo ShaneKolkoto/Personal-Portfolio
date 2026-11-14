@@ -1,6 +1,7 @@
 export type CvData = {
   profile: null | {
     fullName?: string | null;
+    jobTitle?: string | null;
     about?: string | null;
     address?: string | null;
     contactNumber?: string | null;
@@ -10,10 +11,17 @@ export type CvData = {
   };
   socials?: { platform?: string | null; url?: string | null }[] | null;
   projects?: { title: string; description?: string | null; imageUrl?: string | null; link?: string | null; order: number }[] | null;
-  jobs?: { companyName: string; companyLink?: string | null; position: string; startDate?: string | null; endDate?: string | null; isCurrent: boolean; techStack?: string[] | null; description?: string | null; references?: { name: string; position?: string | null; contact?: string | null }[] | null }[] | null;
+  jobs?: { companyName: string; location?: string | null; companyLink?: string | null; position: string; startDate?: string | null; endDate?: string | null; isCurrent: boolean; techStack?: string[] | null; description?: string | null; references?: { name: string; position?: string | null; contact?: string | null }[] | null }[] | null;
   education?: { institution: string; qualification?: string | null; startDate?: string | null; endDate?: string | null; description?: string | null }[] | null;
   certifications?: { name: string; issuer?: string | null; issueDate?: string | null; expirationDate?: string | null; credentialId?: string | null; credentialUrl?: string | null; description?: string | null; imageUrl?: string | null }[] | null;
   hobbies?: { name: string; description?: string | null }[] | null;
+  testimonials?: {
+    firstName: string;
+    company?: string | null;
+    message: string;
+    photoUrl?: string | null;
+    createdAt?: string | null;
+  }[] | null;
 };
 
 type CvResult = { ok: true; data: CvData } | { ok: false; message: string };

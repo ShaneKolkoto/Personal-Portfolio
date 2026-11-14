@@ -16,7 +16,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="rounded-xl px-2 py-2 text-xs text-white transition-colors hover:bg-white/10 sm:px-4 sm:text-sm"
           >
-            Blog
+            Blogs
           </a>
           <a
             href="https://shanekolkotoportfolio.netlify.app"
