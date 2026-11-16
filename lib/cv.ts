@@ -46,6 +46,7 @@ export async function getCv(): Promise<CvResult> {
       next: { revalidate: 300 },
     });
     if (!response.ok) {
+      console.error("CV service request failed", { status: response.status, origin: url.origin });
       const message =
         response.status === 401 ? "CV service credentials are unavailable." :
         response.status === 403 ? "CV service access is not allowed." :
@@ -55,7 +56,11 @@ export async function getCv(): Promise<CvResult> {
       return { ok: false, message };
     }
     return { ok: true, data: (await response.json()) as CvData };
-  } catch {
+  } catch (error) {
+    console.error("CV service request could not be completed", {
+      origin: url.origin,
+      error: error instanceof Error ? error.message : "Unknown fetch error",
+    });
     return { ok: false, message: "The CV could not be loaded right now." };
   }
 }
