@@ -43,7 +43,7 @@ export default function Footer({ socials }: Props) {
           })}
         </nav>
       ) : null}
-      <p className="text-center text-sm text-gray-300">Created with ❤️ using Next.js</p>
+      <p className="text-center text-sm text-gray-300">Created with ❤️ using Next.js. Powered by <a href="https://jadi-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline">Jadi</a></p>
     </footer>
   );
 }
